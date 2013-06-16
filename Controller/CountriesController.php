@@ -6,15 +6,21 @@ App::uses('AppController', 'Controller');
  * @property Country $Country
  */
 class CountriesController extends AppController {
-
+	public $helpers = array('GoogleMap');
 /**
  * index method
  *
  * @return void
  */
 	public function index() {
-		$this->Country->recursive = 0;
-		$this->set('countries', $this->paginate());
+		$country_id=1;
+		/*$this->Country->contain(array('Province.City.Climate','Parameter'));
+		$country = $this->Country->find('first', array('conditions'=>array('id'=>$country_id)));*/
+		$climates = $this->Country->Province->City->Climate->findAllClimates($country_id);
+		$climates = json_encode($climates);
+		//debug($climates);
+		//$this->set('countries', $country);
+		$this->set('countries', $climates);
 	}
 
 /**
@@ -179,5 +185,9 @@ class CountriesController extends AppController {
 		}
 		$this->Session->setFlash(__('Country was not deleted'));
 		$this->redirect(array('action' => 'index'));
+	}
+
+	private function parseSmn($url) {
+		;
 	}
 }

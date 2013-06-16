@@ -90,7 +90,7 @@ class Climate extends AppModel {
 			'decimal' => array(
 				'rule' => array('decimal'),
 				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
+				'allowEmpty' => true,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
@@ -100,7 +100,7 @@ class Climate extends AppModel {
 			'numeric' => array(
 				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
+				'allowEmpty' => true,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
@@ -164,4 +164,23 @@ class Climate extends AppModel {
 			'order' => ''
 		)
 	);
+
+	public function findAllClimates($countryId){
+		$sql = <<<SQL
+select Province.name, City.name, City.latitude, City.longitude, City.woeid, Climate.temperature, Climate.temp_min, Climate.temp_max, Climate.st,
+Climate.humidity, Climate.rain, Climate.snow, Climate.alert, Climate.uv_index, Climate.pressure, Climate.winds, Climate.visibility, Climate.description
+from
+	(select climates.*
+	from climates
+	order by date desc) Climate
+inner join cities City on City.id=Climate.city_id
+inner join provinces Province on Province.id=City.province_id
+where
+Province.country_id=1
+group by Climate.city_id
+order by City.latitude desc;
+SQL;
+	$result = $this->query($sql);
+	return $result;
+	}
 }

@@ -344,3 +344,15 @@ Cache::config('_cake_model_', array(
 	'serialize' => ($engine === 'File'),
 	'duration' => $duration
 ));
+Cache::config('short', array(
+    'engine' => $engine,
+    'duration' => '+1 month',
+    'path' => CACHE,
+    'prefix' => $prefix.'cake_short_'
+));
+Cache::config('climate_data', array(
+    'engine' => $engine,
+    'duration' => '+3 hour',
+    'path' => CACHE,
+    'prefix' => $prefix.'cake_climate_data_'
+));
