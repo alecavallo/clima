@@ -13,6 +13,7 @@ class CountriesController extends AppController {
  * @return void
  */
 	public function index() {
+		$this->set('title_for_layout', "La Página del clima :: Clima en Argentina");
 		$country_id=1;
 		/*$this->Country->contain(array('Province.City.Climate','Parameter'));
 		$country = $this->Country->find('first', array('conditions'=>array('id'=>$country_id)));*/

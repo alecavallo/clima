@@ -33,4 +33,11 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 	public $components = array('DebugKit.Toolbar');
+
+	public function beforeRender(){
+		$description = "Pronóstico actual y extendido del clima en Argentina actualizados en tiempo real";
+		$keywords = "tiempo,clima,pronóstico,clima tiempo,el tiempo en,el tiempo en argentina,el tiempo,el clima";
+		$this->set('description', $description);
+		$this->set('keywords', $keywords);
+	}
 }

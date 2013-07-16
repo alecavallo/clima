@@ -9,5 +9,6 @@ class DATABASE_CONFIG {
 		'login' => 'root',
 		'password' => 'ac17nc22',
 		'database' => 'clima',
+		'encoding'	=>	'utf8'
 	);
 }

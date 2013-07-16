@@ -24,9 +24,17 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
-		<?php echo $cakeDescription ?>:
 		<?php echo $title_for_layout; ?>
 	</title>
+	<meta http-equiv="content-language" content="es-ar">
+	<?php
+		if (isset($description)) {
+			echo "<meta name=\"description\" content=\"{$description}\">";
+		}
+		if (isset($keywords)) {
+			echo "<meta name=\"keywords\" content=\"{$keywords}\">";
+		}
+	?>
 	<?php
 		echo $this->Html->meta('icon');
 	?>
@@ -46,12 +54,14 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	<div id="container">
 		<div id="header">
 			<div id="logo-container">
-				<img alt="La Página del Clima" src="/img/logo.png">
+				<img alt="La PÃ¡gina del Clima" src="/img/logo.png">
 			</div>
 		</div>
 		<div id="content">
 
 			<?php echo $this->Session->flash(); ?>
+
+			<?php $this->element('mobileads', array(), array('cache' => false)) ?>
 
 			<?php echo $this->fetch('content'); ?>
 		</div>
@@ -70,6 +80,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	<?php //echo $this->element('sql_dump'); ?>
 	<!-- Script block loaded at the bottom -->
 	<?php echo $this->fetch('scriptBottom'); ?>
+	<script type="text/javascript" src="/js/ui.js"></script>
 	<!-- Script block loaded at the bottom -->
 	<!-- <script>
 	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
