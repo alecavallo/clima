@@ -1,5 +1,7 @@
 <?php
 	$this->Html->script('mapHandler',array('block' => 'scriptBottom'));
+        $this->Html->script('markerclusterer',array('block' => 'scriptBottom'));
+        $this->Html->script('markerwithlabel',array('block' => 'scriptBottom'));
 ?>
 <div id="leftCol" class="column">
 <section>
@@ -11,17 +13,17 @@
 </div>
 <div id="centerCol" class="column">
     <br/>
-        <script type="text/javascript"><!--
-	google_ad_client = "ca-pub-6965617047977932";
-	/* BlooqueEnlaces 200x90 Col Medio */
-	google_ad_slot = "1962939557";
-	google_ad_width = 200;
-	google_ad_height = 90;
-	//-->
-	</script>
-	<script type="text/javascript"
-	src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-	</script>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- 200px portada clima -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:200px;height:200px"
+             data-ad-client="ca-pub-6965617047977932"
+             data-ad-slot="1376329157"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        
+        
         <br/>
 <section>
 	<article>
@@ -35,46 +37,32 @@
 	</article>
 	
 	<br/><br/>
-	<script type="text/javascript"><!--
-	google_ad_client = "ca-pub-6965617047977932";
-	/* Anuncios-ColCent 200px */
-	google_ad_slot = "1184210350";
-	google_ad_width = 200;
-	google_ad_height = 200;
-	//-->
-	</script>
-	<script type="text/javascript"
-	src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-	</script>
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- 200px solo texto portada clima -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:200px;height:200px"
+             data-ad-client="ca-pub-6965617047977932"
+             data-ad-slot="2853062358"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
 </section>
 </div>
 <div id="rightCol" class="column">
 <div class="publi-container">
 <section>
-	<script type="text/javascript"><!--
-	google_ad_client = "ca-pub-6965617047977932";
-	/* RigtCol300 */
-	google_ad_slot = "2660943552";
-	google_ad_width = 300;
-	google_ad_height = 250;
-	//-->
-	</script>
-	<script type="text/javascript"
-	src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-	</script>
-	<br/>
-	<br/>
-	<script type="text/javascript"><!--
-	google_ad_client = "ca-pub-6965617047977932";
-	/* RigtCol300 */
-	google_ad_slot = "2660943552";
-	google_ad_width = 300;
-	google_ad_height = 250;
-	//-->
-	</script>
-	<script type="text/javascript"
-	src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-	</script>
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Skyscraper Portada Clima -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:160px;height:600px"
+             data-ad-client="ca-pub-6965617047977932"
+             data-ad-slot="7422862757"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
 </section>
 </div>
 </div>
+<script type="text/javascript">
+    markers = <?php echo $climates ?>;
+</script>
